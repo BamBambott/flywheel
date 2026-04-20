@@ -168,14 +168,9 @@ animation:fadeUp 0.8s 0.45s ease both;
 max-width:480px;width:100%;
 position:relative;z-index:1;
 margin-bottom:18px;
-opacity:0;transform:translateY(28px);
-transition:opacity 0.8s ease,transform 0.8s ease;
-pointer-events:none;
-}
-.compound-section.visible{
 opacity:1;transform:translateY(0);
-pointer-events:all;
 }
+
 .compound-card{
 background:linear-gradient(145deg,#101010,#080808);
 border:2px solid #1e1e1e;border-radius:18px;
@@ -376,7 +371,7 @@ const steps = [
 const DURATION = 5500;
 let current = 0;
 let autoTimer = null;
-let compoundShown = false;
+
 
 function resetProgress(){
   const pf = document.getElementById('progress-fill');
@@ -401,10 +396,6 @@ function setStep(idx, instant){
   current = idx;
   resetProgress();
 
-  // After step 5 completes, show compound visualiser
-  if(idx === 4 && !compoundShown){
-    setTimeout(showCompound, DURATION - 400);
-  }
 }
 
 function updateContent(idx){
@@ -414,20 +405,14 @@ function updateContent(idx){
   document.getElementById('detail-body').innerHTML = s.body;
 }
 
-function showCompound(){
-  if(compoundShown) return;
-  compoundShown = true;
-  const cs = document.getElementById('compound-section');
-  cs.classList.add('visible');
-  cs.scrollIntoView({behavior:'smooth', block:'nearest'});
-  setTimeout(()=>drawChart(currentDays), 400);
-  setTimeout(()=>animateNumbers(currentDays), 600);
-}
+
 
 setTimeout(()=>{
   setStep(0,true);
   autoTimer = setInterval(()=>setStep((current+1)%5), DURATION);
-},500);
+  drawChart(currentDays);
+  animateNumbers(currentDays);
+},600);
 
 document.querySelectorAll('.node,.dot').forEach(el=>{
   el.addEventListener('click',()=>{
