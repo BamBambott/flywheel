@@ -8,29 +8,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-
 body{
-background:#030303;
-font-family:‘Syne’,sans-serif;
-min-height:100vh;
-display:flex;flex-direction:column;
-align-items:center;justify-content:center;
-padding:20px 16px 32px;
-overflow-x:hidden;
-position:relative;
+  background:#030303;
+  font-family:'Syne',sans-serif;
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:20px 16px 32px;
+  overflow-x:hidden;position:relative;
 }
 body::before{
-content:’’;position:fixed;
-top:-30%;left:50%;transform:translateX(-50%);
-width:700px;height:700px;
-background:radial-gradient(circle,rgba(34,197,94,0.09) 0%,transparent 60%);
-pointer-events:none;z-index:0;
-animation:ambientPulse 5s ease-in-out infinite;
+  content:'';position:fixed;top:-30%;left:50%;transform:translateX(-50%);
+  width:700px;height:700px;
+  background:radial-gradient(circle,rgba(34,197,94,0.09) 0%,transparent 60%);
+  pointer-events:none;z-index:0;
+  animation:ambientPulse 5s ease-in-out infinite;
 }
-@keyframes ambientPulse{
-0%,100%{opacity:0.6;transform:translateX(-50%) scale(1)}
-50%{opacity:1;transform:translateX(-50%) scale(1.1)}
-}
+@keyframes ambientPulse{0%,100%{opacity:0.6;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.1)}}
 
 /* HEADER */
 .header{
@@ -47,7 +41,7 @@ display:flex;align-items:center;gap:7px;
 border:2px solid rgba(34,197,94,0.6);border-radius:99px;
 padding:5px 14px;font-size:12px;font-weight:700;color:#22c55e;
 background:rgba(34,197,94,0.08);
-box-shadow:0 0 16px rgba(34,197,94,0.2),inset 0 0 12px rgba(34,197,94,0.05);
+box-shadow:0 0 16px rgba(34,197,94,0.2);
 }
 .live-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;
 box-shadow:0 0 8px rgba(34,197,94,0.8);animation:pulse 1.6s infinite}
@@ -82,7 +76,7 @@ border:1px dashed rgba(34,197,94,0.18);animation:spinSlow 20s linear infinite re
 position:absolute;top:50%;left:50%;
 width:8px;height:8px;margin-left:-4px;margin-top:-4px;
 background:#22c55e;border-radius:50%;
-box-shadow:0 0 12px rgba(34,197,94,1),0 0 24px rgba(34,197,94,0.6);
+box-shadow:0 0 12px #22c55e,0 0 24px rgba(34,197,94,0.6);
 animation:orbitDot 28s linear infinite;z-index:3;
 }
 @keyframes orbitDot{
@@ -101,7 +95,7 @@ box-shadow:0 0 0 8px rgba(34,197,94,0.05),0 0 50px rgba(34,197,94,0.25),inset 0 
 animation:hubPulse 3.5s ease-in-out infinite;
 }
 .hub-label{font-size:11px;font-weight:800;letter-spacing:0.16em;color:#22c55e;text-transform:uppercase;text-shadow:0 0 12px rgba(34,197,94,0.8)}
-.hub-sub{font-size:8.5px;color:#444;font-weight:600;margin-top:2px;letter-spacing:0.05em}
+.hub-sub{font-size:8.5px;color:#444;font-weight:600;margin-top:2px}
 .node{
 position:absolute;width:70px;height:70px;border-radius:50%;
 background:linear-gradient(145deg,#161616,#0c0c0c);
@@ -109,7 +103,7 @@ border:2px solid #252525;
 display:flex;flex-direction:column;align-items:center;justify-content:center;
 text-align:center;cursor:pointer;z-index:4;
 transform:translate(-50%,-50%) scale(1);
-transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.4s ease,border-color 0.4s ease,background 0.4s ease;
+transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.4s,border-color 0.4s,background 0.4s;
 }
 .node.active{
 background:radial-gradient(circle at 40% 35%,rgba(34,197,94,0.22),rgba(34,197,94,0.06));
@@ -120,7 +114,7 @@ transform:translate(-50%,-50%) scale(1.18);
 .node:not(.active):hover{border-color:rgba(34,197,94,0.4);box-shadow:0 0 20px rgba(34,197,94,0.2);transform:translate(-50%,-50%) scale(1.1)}
 .node-icon{font-size:22px;line-height:1;margin-bottom:3px;transition:transform 0.3s}
 .node.active .node-icon{transform:scale(1.15)}
-.node-label{font-size:8px;font-weight:800;letter-spacing:0.08em;color:#555;text-transform:uppercase;line-height:1.2;transition:color 0.3s,text-shadow 0.3s}
+.node-label{font-size:8px;font-weight:800;letter-spacing:0.08em;color:#555;text-transform:uppercase;transition:color 0.3s,text-shadow 0.3s}
 .node.active .node-label{color:#22c55e;text-shadow:0 0 10px rgba(34,197,94,0.7)}
 
 /* DETAIL CARD */
@@ -130,7 +124,7 @@ background:linear-gradient(145deg,#101010,#080808);
 border:2px solid #1e1e1e;border-radius:18px;
 padding:18px 20px 14px;margin-bottom:14px;
 position:relative;z-index:1;overflow:hidden;
-box-shadow:0 8px 40px rgba(0,0,0,0.6),0 0 0 1px rgba(34,197,94,0.05);
+box-shadow:0 8px 40px rgba(0,0,0,0.6);
 animation:fadeUp 0.8s 0.35s ease both;
 }
 .detail-card::before{
@@ -157,81 +151,126 @@ animation:progressShine 2s linear infinite;
 /* DOTS */
 .step-dots{
 display:flex;gap:10px;justify-content:center;
-margin-bottom:18px;position:relative;z-index:1;
+margin-bottom:16px;position:relative;z-index:1;
 animation:fadeUp 0.8s 0.45s ease both;
 }
 .dot{width:7px;height:7px;border-radius:50%;background:#1e1e1e;cursor:pointer;transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);border:1px solid #2a2a2a}
-.dot.active{background:#22c55e;border-color:#22c55e;transform:scale(1.7);box-shadow:0 0 10px rgba(34,197,94,0.7),0 0 20px rgba(34,197,94,0.3)}
+.dot.active{background:#22c55e;border-color:#22c55e;transform:scale(1.7);box-shadow:0 0 10px rgba(34,197,94,0.7)}
 
-/* ============ COMPOUND VISUALISER ============ */
+/* ============ COMPOUND SECTION ============ */
 .compound-section{
 max-width:480px;width:100%;
-position:relative;z-index:1;
-margin-bottom:18px;
-opacity:1;transform:translateY(0);
+position:relative;z-index:1;margin-bottom:18px;
+animation:fadeUp 0.8s 0.55s ease both;
 }
-
 .compound-card{
 background:linear-gradient(145deg,#101010,#080808);
 border:2px solid #1e1e1e;border-radius:18px;
-padding:18px 20px;overflow:hidden;
-box-shadow:0 8px 40px rgba(0,0,0,0.6),0 0 0 1px rgba(34,197,94,0.05);
-position:relative;
+padding:18px 20px;overflow:hidden;position:relative;
+box-shadow:0 8px 40px rgba(0,0,0,0.6);
 }
 .compound-card::before{
 content:’’;position:absolute;top:0;left:0;right:0;height:2px;
 background:linear-gradient(90deg,transparent 5%,rgba(34,197,94,0.8) 40%,rgba(34,197,94,0.8) 60%,transparent 95%);
+animation:topGlow 3s ease-in-out infinite;
 }
-.compound-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px}
-.compound-title-wrap{}
+.compound-header{
+display:flex;align-items:center;justify-content:space-between;
+margin-bottom:18px;flex-wrap:wrap;gap:8px;
+}
 .compound-eyebrow{font-size:9px;font-weight:800;letter-spacing:0.2em;color:#22c55e;text-transform:uppercase;margin-bottom:3px;text-shadow:0 0 10px rgba(34,197,94,0.4)}
 .compound-title{font-size:15px;font-weight:800;color:#fff;line-height:1.2}
 .compound-title span{color:#22c55e}
 
-/* TIME TOGGLE */
+/* TIME BUTTONS */
 .time-btns{display:flex;gap:6px}
 .time-btn{
-padding:5px 12px;border-radius:8px;
-background:#111;border:1.5px solid #222;
-font-family:‘Syne’,sans-serif;font-size:11px;font-weight:700;
-color:#555;cursor:pointer;transition:all 0.2s;
+padding:6px 13px;border-radius:8px;
+background:#111;border:1.5px solid #252525;
+font-family:‘Syne’,sans-serif;font-size:11px;font-weight:800;
+color:#444;cursor:pointer;transition:all 0.2s;
 }
+.time-btn:hover{border-color:rgba(34,197,94,0.4);color:#888}
 .time-btn.active{
-background:rgba(34,197,94,0.12);
-border-color:rgba(34,197,94,0.6);
-color:#22c55e;
-box-shadow:0 0 12px rgba(34,197,94,0.2);
+background:rgba(34,197,94,0.12);border-color:rgba(34,197,94,0.7);
+color:#22c55e;box-shadow:0 0 14px rgba(34,197,94,0.2);
 }
 
-/* CHART AREA */
-.chart-area{
+/* BAR CHART */
+.bars-wrap{
+display:flex;align-items:flex-end;justify-content:center;
+gap:20px;height:160px;margin-bottom:16px;
+padding:0 8px;
+}
+.bar-col{
+flex:1;max-width:140px;
+display:flex;flex-direction:column;align-items:center;
+height:100%;justify-content:flex-end;gap:8px;
+}
+.bar-track{
+width:100%;flex:1;
+background:#0d0d0d;border-radius:10px 10px 4px 4px;
+border:1px solid #1a1a1a;
+display:flex;align-items:flex-end;overflow:hidden;
 position:relative;
-width:100%;height:140px;margin-bottom:14px;
 }
-canvas#compoundCanvas{width:100%;height:100%;display:block}
+/* grid lines inside track */
+.bar-track::before,.bar-track::after{
+content:’’;position:absolute;left:0;right:0;height:1px;
+background:rgba(255,255,255,0.04);
+}
+.bar-track::before{bottom:33%}
+.bar-track::after{bottom:66%}
 
-/* RESULT NUMBERS */
-.result-row{
-display:grid;grid-template-columns:1fr 1fr;gap:10px;
+.bar-fill{
+width:100%;border-radius:8px 8px 2px 2px;
+transition:height 1s cubic-bezier(0.34,1.2,0.64,1);
+position:relative;
 }
-.result-box{
-background:#0d0d0d;border:1.5px solid #1a1a1a;
-border-radius:12px;padding:12px 14px;
+.bar-fill.idle{
+background:linear-gradient(180deg,#2a2a2a,#1a1a1a);
+height:10%;
 }
-.result-box.pots-box{
-border-color:rgba(34,197,94,0.35);
-background:rgba(34,197,94,0.04);
-box-shadow:0 0 20px rgba(34,197,94,0.08);
+.bar-fill.pots{
+background:linear-gradient(180deg,#4ade80,#22c55e,#16a34a);
+box-shadow:0 0 20px rgba(34,197,94,0.4),0 0 40px rgba(34,197,94,0.15);
+height:10%;
 }
-.result-label{font-size:9px;font-weight:800;letter-spacing:0.12em;color:#444;text-transform:uppercase;margin-bottom:5px}
-.result-label.green{color:#22c55e}
-.result-amount{font-family:‘DM Mono’,monospace;font-size:20px;font-weight:500;color:#333}
-.result-amount.green{color:#22c55e;text-shadow:0 0 16px rgba(34,197,94,0.4)}
-.result-gain{font-size:10px;font-weight:700;color:#555;margin-top:2px}
-.result-gain.green{color:#22c55e}
+.bar-fill.pots::after{
+content:’’;
+position:absolute;top:0;left:0;right:0;height:40%;
+background:linear-gradient(180deg,rgba(255,255,255,0.15),transparent);
+border-radius:8px 8px 0 0;
+}
+
+.bar-label-top{
+font-family:‘DM Mono’,monospace;
+font-size:13px;font-weight:500;
+color:#444;text-align:center;
+transition:color 0.4s;min-height:18px;
+}
+.bar-label-top.green{color:#22c55e;text-shadow:0 0 12px rgba(34,197,94,0.5)}
+.bar-name{font-size:10px;font-weight:800;color:#444;text-transform:uppercase;letter-spacing:0.08em;text-align:center}
+.bar-name.green{color:#22c55e}
+
+/* GAIN STRIP */
+.gain-strip{
+background:rgba(34,197,94,0.06);
+border:1.5px solid rgba(34,197,94,0.2);
+border-radius:10px;padding:10px 14px;
+display:flex;align-items:center;justify-content:space-between;
+gap:8px;
+}
+.gain-label{font-size:11px;font-weight:800;color:#555;letter-spacing:0.05em}
+.gain-amount{
+font-family:‘DM Mono’,monospace;font-size:18px;font-weight:500;
+color:#22c55e;text-shadow:0 0 16px rgba(34,197,94,0.5);
+}
+.gain-tag{font-size:10px;font-weight:800;color:#22c55e;letter-spacing:0.08em;text-transform:uppercase;
+background:rgba(34,197,94,0.12);padding:3px 8px;border-radius:6px;white-space:nowrap}
 
 /* FOOTER */
-.footer{text-align:center;position:relative;z-index:1;animation:fadeUp 0.8s 0.55s ease both}
+.footer{text-align:center;position:relative;z-index:1;animation:fadeUp 0.8s 0.65s ease both}
 .footer-brand{font-size:13px;font-weight:800;color:#2e2e2e;letter-spacing:0.06em}
 .footer-brand span{color:#22c55e;text-shadow:0 0 12px rgba(34,197,94,0.4)}
 .footer-handles{display:flex;gap:16px;justify-content:center;margin-top:6px}
@@ -275,16 +314,16 @@ box-shadow:0 0 20px rgba(34,197,94,0.08);
   <div class="orbital-dot"></div>
   <svg class="arrows-svg" viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <marker id="arrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <marker id="ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
         <polygon points="0 1,7 4,0 7" fill="rgba(34,197,94,0.6)"/>
       </marker>
-      <filter id="glow"><feGaussianBlur stdDeviation="2.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="glow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
     </defs>
-    <path d="M248 86 Q300 120 298 168" stroke="rgba(34,197,94,0.35)" stroke-width="2" fill="none" marker-end="url(#arrowHead)" stroke-dasharray="6 4" filter="url(#glow)"/>
-    <path d="M296 215 Q282 276 236 298" stroke="rgba(34,197,94,0.35)" stroke-width="2" fill="none" marker-end="url(#arrowHead)" stroke-dasharray="6 4" filter="url(#glow)"/>
-    <path d="M146 298 Q98 276 82 216" stroke="rgba(34,197,94,0.35)" stroke-width="2" fill="none" marker-end="url(#arrowHead)" stroke-dasharray="6 4" filter="url(#glow)"/>
-    <path d="M82 162 Q86 106 136 84" stroke="rgba(34,197,94,0.35)" stroke-width="2" fill="none" marker-end="url(#arrowHead)" stroke-dasharray="6 4" filter="url(#glow)"/>
-    <path d="M190 66 Q224 62 244 78" stroke="rgba(34,197,94,0.35)" stroke-width="2" fill="none" marker-end="url(#arrowHead)" stroke-dasharray="6 4" filter="url(#glow)"/>
+    <path d="M248 86 Q300 120 298 168" stroke="rgba(34,197,94,0.35)" stroke-width="2" fill="none" marker-end="url(#ah)" stroke-dasharray="6 4" filter="url(#glow)"/>
+    <path d="M296 215 Q282 276 236 298" stroke="rgba(34,197,94,0.35)" stroke-width="2" fill="none" marker-end="url(#ah)" stroke-dasharray="6 4" filter="url(#glow)"/>
+    <path d="M146 298 Q98 276 82 216" stroke="rgba(34,197,94,0.35)" stroke-width="2" fill="none" marker-end="url(#ah)" stroke-dasharray="6 4" filter="url(#glow)"/>
+    <path d="M82 162 Q86 106 136 84" stroke="rgba(34,197,94,0.35)" stroke-width="2" fill="none" marker-end="url(#ah)" stroke-dasharray="6 4" filter="url(#glow)"/>
+    <path d="M190 66 Q224 62 244 78" stroke="rgba(34,197,94,0.35)" stroke-width="2" fill="none" marker-end="url(#ah)" stroke-dasharray="6 4" filter="url(#glow)"/>
   </svg>
   <div class="center-hub">
     <div class="hub-label">PBM</div>
@@ -314,12 +353,12 @@ box-shadow:0 0 20px rgba(34,197,94,0.08);
   <div class="dot" id="dot-4" onclick="setStep(4)"></div>
 </div>
 
-<!-- COMPOUND VISUALISER -->
+<!-- COMPOUND SECTION -->
 
-<div class="compound-section" id="compound-section">
+<div class="compound-section">
   <div class="compound-card">
     <div class="compound-header">
-      <div class="compound-title-wrap">
+      <div>
         <div class="compound-eyebrow">The Compound Effect</div>
         <div class="compound-title">$1,000 on <span>POTS</span> vs Idle</div>
       </div>
@@ -329,21 +368,36 @@ box-shadow:0 0 20px rgba(34,197,94,0.08);
         <button class="time-btn" onclick="setDays(90,this)">90d</button>
       </div>
     </div>
-    <div class="chart-area">
-      <canvas id="compoundCanvas"></canvas>
+
+```
+<!-- BARS -->
+<div class="bars-wrap">
+  <!-- IDLE -->
+  <div class="bar-col">
+    <div class="bar-label-top" id="idle-top">$1,000</div>
+    <div class="bar-track">
+      <div class="bar-fill idle" id="idle-bar"></div>
     </div>
-    <div class="result-row">
-      <div class="result-box">
-        <div class="result-label">Idle Capital</div>
-        <div class="result-amount" id="idle-amount">$1,000.00</div>
-        <div class="result-gain">+$0.00 earned</div>
-      </div>
-      <div class="result-box pots-box">
-        <div class="result-label green">POTS Money (8% APY)</div>
-        <div class="result-amount green" id="pots-amount">$1,000.00</div>
-        <div class="result-gain green" id="pots-gain">+$0.00 earned</div>
-      </div>
+    <div class="bar-name">Idle</div>
+  </div>
+  <!-- POTS -->
+  <div class="bar-col">
+    <div class="bar-label-top green" id="pots-top">$1,000</div>
+    <div class="bar-track">
+      <div class="bar-fill pots" id="pots-bar"></div>
     </div>
+    <div class="bar-name green">POTS 8% APY</div>
+  </div>
+</div>
+
+<!-- GAIN STRIP -->
+<div class="gain-strip">
+  <span class="gain-label">Extra earned with POTS</span>
+  <span class="gain-amount" id="gain-amount">+$0.00</span>
+  <span class="gain-tag" id="gain-tag">30 days</span>
+</div>
+```
+
   </div>
 </div>
 
@@ -372,7 +426,6 @@ const DURATION = 5500;
 let current = 0;
 let autoTimer = null;
 
-
 function resetProgress(){
   const pf = document.getElementById('progress-fill');
   pf.classList.remove('running');
@@ -393,39 +446,22 @@ function setStep(idx, instant){
   }
   document.getElementById('node-'+idx).classList.add('active');
   document.getElementById('dot-'+idx).classList.add('active');
-  current = idx;
+  current=idx;
   resetProgress();
-
 }
 
 function updateContent(idx){
-  const s = steps[idx];
-  document.getElementById('detail-step').textContent = s.step;
-  document.getElementById('detail-title').textContent = s.title;
-  document.getElementById('detail-body').innerHTML = s.body;
+  const s=steps[idx];
+  document.getElementById('detail-step').textContent=s.step;
+  document.getElementById('detail-title').textContent=s.title;
+  document.getElementById('detail-body').innerHTML=s.body;
 }
 
-
-
-setTimeout(()=>{
-  setStep(0,true);
-  autoTimer = setInterval(()=>setStep((current+1)%5), DURATION);
-  drawChart(currentDays);
-  animateNumbers(currentDays);
-},600);
-
-document.querySelectorAll('.node,.dot').forEach(el=>{
-  el.addEventListener('click',()=>{
-    clearInterval(autoTimer);
-    autoTimer = setInterval(()=>setStep((current+1)%5), DURATION);
-  });
-});
-
-/* ===== COMPOUND CHART ===== */
+/* ===== COMPOUND BARS ===== */
 const APY = 0.08;
 const PRINCIPAL = 1000;
 let currentDays = 30;
-let animFrame = null;
+let numAnim = null;
 
 function calcPOTS(days){ return PRINCIPAL * Math.pow(1 + APY/365, days); }
 
@@ -433,159 +469,54 @@ function setDays(days, btn){
   currentDays = days;
   document.querySelectorAll('.time-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  drawChart(days);
-  animateNumbers(days);
+  updateBars(days);
 }
 
-function drawChart(days){
-  const canvas = document.getElementById('compoundCanvas');
-  const dpr = window.devicePixelRatio || 1;
-  const rect = canvas.parentElement.getBoundingClientRect();
-  canvas.width = rect.width * dpr;
-  canvas.height = rect.height * dpr;
-  canvas.style.width = rect.width + 'px';
-  canvas.style.height = rect.height + 'px';
-  const ctx = canvas.getContext('2d');
-  ctx.scale(dpr, dpr);
-  const W = rect.width, H = rect.height;
-  const pad = {top:12, right:12, bottom:28, left:44};
-  const cW = W - pad.left - pad.right;
-  const cH = H - pad.top - pad.bottom;
+function updateBars(days){
+  const potsVal = calcPOTS(days);
+  const gain = potsVal - PRINCIPAL;
 
-  ctx.clearRect(0,0,W,H);
+  // Bar heights — POTS bar height relative to idle
+  // idle is always at a fixed low height, pots grows above it
+  const maxGainRef = calcPOTS(90) - PRINCIPAL; // max possible gain = 90d
+  const idleH = 12; // idle bar always small %
+  const potsH = idleH + ((gain / maxGainRef) * (88 - idleH));
 
-  // Max value for scaling
-  const maxVal = calcPOTS(days);
-  const minVal = PRINCIPAL * 0.995;
-  const range = maxVal - minVal;
+  document.getElementById('idle-bar').style.height = idleH + '%';
+  document.getElementById('pots-bar').style.height = potsH + '%';
 
-  function xPos(d){ return pad.left + (d/days)*cW; }
-  function yPos(v){ return pad.top + cH - ((v-minVal)/range)*cH; }
-
-  // Grid lines
-  ctx.strokeStyle = 'rgba(255,255,255,0.04)';
-  ctx.lineWidth = 1;
-  for(let i=0;i<=4;i++){
-    const y = pad.top + (i/4)*cH;
-    ctx.beginPath();ctx.moveTo(pad.left,y);ctx.lineTo(pad.left+cW,y);ctx.stroke();
-  }
-
-  // Y labels
-  ctx.fillStyle = '#333';
-  ctx.font = '600 9px Syne, sans-serif';
-  ctx.textAlign = 'right';
-  for(let i=0;i<=4;i++){
-    const v = minVal + (range*(4-i)/4);
-    const y = pad.top + (i/4)*cH;
-    ctx.fillText('$'+v.toFixed(0), pad.left-4, y+3);
-  }
-
-  // X labels
-  ctx.textAlign = 'center';
-  ctx.fillStyle = '#333';
-  const xTicks = [0, Math.round(days/3), Math.round(days*2/3), days];
-  xTicks.forEach(d=>{
-    ctx.fillText(d+'d', xPos(d), H-6);
-  });
-
-  // IDLE LINE (flat)
-  ctx.strokeStyle = 'rgba(100,100,100,0.4)';
-  ctx.lineWidth = 1.5;
-  ctx.setLineDash([4,4]);
-  ctx.beginPath();
-  ctx.moveTo(xPos(0), yPos(PRINCIPAL));
-  ctx.lineTo(xPos(days), yPos(PRINCIPAL));
-  ctx.stroke();
-  ctx.setLineDash([]);
-
-  // POTS LINE with animation
-  const totalPoints = 80;
-  let drawn = 0;
-
-  function drawFrame(){
-    drawn = Math.min(drawn+2, totalPoints);
-
-    // Erase old POTS line area
-    ctx.clearRect(pad.left, pad.top, cW+2, cH+2);
-
-    // Redraw grid
-    ctx.strokeStyle='rgba(255,255,255,0.04)';ctx.lineWidth=1;
-    for(let i=0;i<=4;i++){
-      const y=pad.top+(i/4)*cH;ctx.beginPath();ctx.moveTo(pad.left,y);ctx.lineTo(pad.left+cW,y);ctx.stroke();
-    }
-
-    // Redraw idle
-    ctx.strokeStyle='rgba(100,100,100,0.4)';ctx.lineWidth=1.5;ctx.setLineDash([4,4]);
-    ctx.beginPath();ctx.moveTo(xPos(0),yPos(PRINCIPAL));ctx.lineTo(xPos(days),yPos(PRINCIPAL));ctx.stroke();
-    ctx.setLineDash([]);
-
-    // Idle label
-    ctx.fillStyle='#444';ctx.font='700 9px Syne,sans-serif';ctx.textAlign='left';
-    ctx.fillText('Idle',xPos(days)+3,yPos(PRINCIPAL)+3);
-
-    // POTS fill (gradient under curve)
-    const grad = ctx.createLinearGradient(0, pad.top, 0, pad.top+cH);
-    grad.addColorStop(0,'rgba(34,197,94,0.25)');
-    grad.addColorStop(1,'rgba(34,197,94,0)');
-    ctx.fillStyle = grad;
-    ctx.beginPath();
-    ctx.moveTo(xPos(0), yPos(PRINCIPAL));
-    for(let i=1;i<=drawn;i++){
-      const d = (i/totalPoints)*days;
-      ctx.lineTo(xPos(d), yPos(calcPOTS(d)));
-    }
-    ctx.lineTo(xPos((drawn/totalPoints)*days), yPos(PRINCIPAL));
-    ctx.closePath();
-    ctx.fill();
-
-    // POTS LINE
-    ctx.strokeStyle='#22c55e';
-    ctx.lineWidth=2.5;
-    ctx.shadowColor='rgba(34,197,94,0.6)';
-    ctx.shadowBlur=8;
-    ctx.beginPath();
-    for(let i=0;i<=drawn;i++){
-      const d=(i/totalPoints)*days;
-      const x=xPos(d), y=yPos(calcPOTS(d));
-      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
-    }
-    ctx.stroke();
-    ctx.shadowBlur=0;
-
-    // POTS dot at end
-    if(drawn===totalPoints){
-      const ex=xPos(days), ey=yPos(calcPOTS(days));
-      ctx.beginPath();ctx.arc(ex,ey,5,0,Math.PI*2);
-      ctx.fillStyle='#22c55e';ctx.shadowColor='rgba(34,197,94,0.9)';ctx.shadowBlur=12;ctx.fill();
-      ctx.shadowBlur=0;
-      ctx.fillStyle='#22c55e';ctx.font='700 9px Syne,sans-serif';ctx.textAlign='left';
-      ctx.fillText('POTS',ex+6,ey+3);
-    }
-
-    if(drawn < totalPoints) animFrame = requestAnimationFrame(drawFrame);
-  }
-
-  if(animFrame) cancelAnimationFrame(animFrame);
-  drawFrame();
-}
-
-function animateNumbers(days){
-  const target = calcPOTS(days);
-  const gain = target - PRINCIPAL;
+  // Animate numbers
+  if(numAnim) cancelAnimationFrame(numAnim);
   const start = Date.now();
-  const dur = 1800;
+  const dur = 1200;
+  const startGain = parseFloat(document.getElementById('gain-amount').textContent.replace('+$','')) || 0;
+
   function tick(){
     const t = Math.min((Date.now()-start)/dur, 1);
-    const ease = 1-Math.pow(1-t,3);
-    const val = PRINCIPAL + gain*ease;
-    document.getElementById('pots-amount').textContent = '$'+val.toFixed(2);
-    document.getElementById('pots-gain').textContent = '+$'+(gain*ease).toFixed(2)+' earned';
-    if(t<1) requestAnimationFrame(tick);
+    const ease = 1 - Math.pow(1-t, 3);
+    const g = startGain + (gain - startGain)*ease;
+    const v = PRINCIPAL + g;
+    document.getElementById('pots-top').textContent = '$'+v.toFixed(2);
+    document.getElementById('gain-amount').textContent = '+$'+g.toFixed(2);
+    document.getElementById('gain-tag').textContent = days+' days';
+    if(t<1) numAnim = requestAnimationFrame(tick);
   }
-  requestAnimationFrame(tick);
+  numAnim = requestAnimationFrame(tick);
 }
 
-window.addEventListener('resize', ()=>{ if(compoundShown) drawChart(currentDays); });
+/* INIT */
+setTimeout(()=>{
+  setStep(0, true);
+  autoTimer = setInterval(()=>setStep((current+1)%5), DURATION);
+  updateBars(30);
+}, 600);
+
+document.querySelectorAll('.node,.dot').forEach(el=>{
+  el.addEventListener('click',()=>{
+    clearInterval(autoTimer);
+    autoTimer = setInterval(()=>setStep((current+1)%5), DURATION);
+  });
+});
 </script>
 
 </body>
